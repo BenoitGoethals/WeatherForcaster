@@ -1,0 +1,2 @@
+# WeatherForcaster
+init
