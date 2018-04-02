@@ -25,7 +25,7 @@ namespace WeatherForcasterStarter
            var s = new XmlSerializer(typeof(Current));
           var timezoneDbInfo = (Current)s.Deserialize(response.GetResponseStream() ?? throw new InvalidOperationException());
 
-            Console.WriteLine(timezoneDbInfo);
+         /**   Console.WriteLine(timezoneDbInfo);
             Document doc = new Document(PageSize.A4);
             var output = new FileStream(("c:/temp/MyFirstPDF.pdf"), FileMode.Create);
             var writer = PdfWriter.GetInstance(doc, output);
@@ -149,6 +149,7 @@ namespace WeatherForcasterStarter
             doc.Add(table1);
 
             doc.Close();
+    **/
 
             Console.ReadLine();
 

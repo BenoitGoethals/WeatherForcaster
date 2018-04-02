@@ -167,12 +167,6 @@ namespace WeatherForcastLib.Model
         public Weather Weather { get; set; }
         [XmlElement(ElementName = "lastupdate")]
         public Lastupdate Lastupdate { get; set; }
-
-
-        public override string ToString()
-        {
-            return $"{nameof(City)}: {City}, {nameof(Temperature)}: {Temperature}, {nameof(Humidity)}: {Humidity}, {nameof(Pressure)}: {Pressure}, {nameof(Wind)}: {Wind}, {nameof(Clouds)}: {Clouds}, {nameof(Visibility)}: {Visibility}, {nameof(Precipitation)}: {Precipitation}, {nameof(Weather)}: {Weather}, {nameof(Lastupdate)}: {Lastupdate}";
-        }
     }
 
 }
