@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using WeatherForcastLib.Model;
 
@@ -25,18 +26,24 @@ namespace WeatherForcastLib.BL
 
 
 
-        public WeatherData GetMaxTemp()
+        public double GetMaxTemp()
         {
-            return new WeatherData();
+            List<double> doubles=new List<double>();
+            foreach (SortedSet<WeatherData> dat in _datas.Values)
+            {
+               doubles.Add(dat.Max.Temperature);
+            }
+
+            return doubles.Max();
         }
 
         public WeatherData GetMaxTemp(string city)
 
         {
-            SortedSet<WeatherData> dat = _datas[city];
-         
+            SortedSet<WeatherData> dat = _datas?[city];
+          
 
-            return dat.First(x => x.Temperature == dat.Max(y => y.Temperature));
+            return  dat?.First(x => x.Temperature == dat.Max(y => y.Temperature));
         }
 
 
@@ -45,23 +52,44 @@ namespace WeatherForcastLib.BL
 
         public double GetAverage(string city)
         {
-            return 0.0;
+            SortedSet<WeatherData> dat = _datas?[city];
+
+
+            Debug.Assert(dat != null, nameof(dat) + " != null");
+            return dat.Average(x => x.Temperature);
         }
 
         public double GetAverage()
         {
-            return 0.0;
+
+
+            List<double> doubles = new List<double>();
+            foreach (SortedSet<WeatherData> dat in _datas.Values)
+            {
+                doubles.Add(dat.Average(x=>x.Temperature));
+            }
+
+            return doubles.Average();
         }
 
 
         public WeatherData GetMin(string city)
         {
-            return new WeatherData();
+            SortedSet<WeatherData> dat = _datas?[city];
+
+
+            return dat?.First(x => x.Temperature == dat.Min(y => y.Temperature));
         }
 
-        public WeatherData GetMin()
+        public double GetMin()
         {
-            return new WeatherData();
+           var doubles = new List<double>();
+            foreach (SortedSet<WeatherData> dat in _datas.Values)
+            {
+                doubles.Add(dat.Min.Temperature);
+            }
+
+            return doubles.Min();
         }
 
 

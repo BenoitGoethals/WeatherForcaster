@@ -24,7 +24,7 @@ namespace WeatherForcastLibTests.BL
         {
 
             Statics statics = new Statics();
-            foreach (var city in CityRepo.Cities().Take(3))
+            foreach (var city in CityRepo.Cities().Take(5))
             {
                 Current current= RestWeatherForcastUtil.GetDataFromUrlByZipCode(city, "BE");
                 if (current != null)
@@ -34,7 +34,7 @@ namespace WeatherForcastLibTests.BL
           
             }
          
-            Assert.IsNotNull(statics.GetAllCity());
+            Assert.AreEqual(4,statics.GetAllCity().Count);
         }
 
         [TestMethod()]
@@ -43,37 +43,53 @@ namespace WeatherForcastLibTests.BL
             Statics statics = new Statics();
             statics.Add(new WeatherData(RestWeatherForcastUtil.GetDataFromUrlByZipCode("9000", "BE")));
             Assert.AreEqual(1, statics.GetAllCity().Count);
-            Assert.IsNotNull(statics.GetMaxTemp("9000"));
+            Assert.IsNotNull(statics.GetMaxTemp("Ghent"));
         }
 
         [TestMethod()]
-        public void GetMaxTempTest1()
+        public void GetMaxTempAllTest()
         {
-            Assert.Fail();
+            Statics statics = new Statics();
+            statics.Add(new WeatherData(RestWeatherForcastUtil.GetDataFromUrlByZipCode("9000", "BE")));
+            Assert.AreEqual(1, statics.GetAllCity().Count);
+            Assert.IsNotNull(statics.GetMaxTemp());
         }
+
 
         [TestMethod()]
         public void GetAverageTest()
         {
-            Assert.Fail();
+            Statics statics = new Statics();
+            statics.Add(new WeatherData(RestWeatherForcastUtil.GetDataFromUrlByZipCode("9000", "BE")));
+            Assert.AreEqual(1, statics.GetAllCity().Count);
+            Assert.IsNotNull(statics.GetAverage("Ghent"));
         }
 
         [TestMethod()]
-        public void GetAverageTest1()
+        public void GetAverageTestAll()
         {
-            Assert.Fail();
+            Statics statics = new Statics();
+            statics.Add(new WeatherData(RestWeatherForcastUtil.GetDataFromUrlByZipCode("9000", "BE")));
+            Assert.AreEqual(1, statics.GetAllCity().Count);
+            Assert.IsNotNull(statics.GetAverage());
         }
 
         [TestMethod()]
         public void GetMinTest()
         {
-            Assert.Fail();
+            Statics statics = new Statics();
+            statics.Add(new WeatherData(RestWeatherForcastUtil.GetDataFromUrlByZipCode("9000", "BE")));
+            Assert.AreEqual(1, statics.GetAllCity().Count);
+            Assert.IsNotNull(statics.GetAverage("Ghent"));
         }
 
         [TestMethod()]
-        public void GetMinTest1()
+        public void GetMinTestAll()
         {
-            Assert.Fail();
+            Statics statics = new Statics();
+            statics.Add(new WeatherData(RestWeatherForcastUtil.GetDataFromUrlByZipCode("9000", "BE")));
+            Assert.AreEqual(1, statics.GetAllCity().Count);
+            Assert.IsNotNull(statics.GetMin());
         }
 
     }
