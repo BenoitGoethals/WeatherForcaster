@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using WeatherForcastLib.Model;
 
@@ -31,7 +30,11 @@ namespace WeatherForcastLib.BL
             List<double> doubles=new List<double>();
             foreach (SortedSet<WeatherData> dat in _datas.Values)
             {
-               doubles.Add(dat.Max.Temperature);
+                foreach (var maxData in dat)
+                {
+                    doubles.Add(maxData.Temperature);
+                }
+              
             }
 
             return doubles.Max();
@@ -55,8 +58,7 @@ namespace WeatherForcastLib.BL
             SortedSet<WeatherData> dat = _datas?[city];
 
 
-            Debug.Assert(dat != null, nameof(dat) + " != null");
-            return dat.Average(x => x.Temperature);
+            return (dat ?? throw new InvalidOperationException()).Average(x => x.Temperature);
         }
 
         public double GetAverage()
@@ -83,12 +85,15 @@ namespace WeatherForcastLib.BL
 
         public double GetMin()
         {
-           var doubles = new List<double>();
+            List<double> doubles = new List<double>();
             foreach (SortedSet<WeatherData> dat in _datas.Values)
             {
-                doubles.Add(dat.Min.Temperature);
-            }
+                foreach (var maxData in dat)
+                {
+                    doubles.Add(maxData.Temperature);
+                }
 
+            }
             return doubles.Min();
         }
 
@@ -100,5 +105,19 @@ namespace WeatherForcastLib.BL
             return _datas.Keys.ToList();
         }
 
+
+
+        public List<WeatherData> AllWeatherDatas()
+        {
+            List<WeatherData> datas=new List<WeatherData>();
+            foreach (var data in _datas.Values)
+            {
+                foreach (var weatherData in data)
+                {
+                    datas.Add(weatherData);
+                }
+            }
+            return datas;
+        }
     }
 }
