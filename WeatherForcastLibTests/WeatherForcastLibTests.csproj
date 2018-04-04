@@ -59,6 +59,7 @@
     <Compile Include="BL\StaticsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\CityRepoTests.cs" />
+    <Compile Include="Util\Reports\ReportCreatorTests.cs" />
     <Compile Include="Util\RestWeatherForcastUtilTests.cs" />
   </ItemGroup>
   <ItemGroup>

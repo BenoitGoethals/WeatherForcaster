@@ -86,11 +86,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Util\Converter.cs" />
-    <Compile Include="Util\CurrentWeatherReport.cs" />
-    <Compile Include="Util\ICurrentWeatherReport.cs" />
+    <Compile Include="Util\Reports\CurrentWeatherReport.cs" />
+    <Compile Include="Util\Reports\ICurrentWeatherReport.cs" />
     <Compile Include="Util\Mode.cs" />
-    <Compile Include="Util\Report.cs" />
-    <Compile Include="Util\ReportCreator.cs" />
+    <Compile Include="Util\Reports\Report.cs" />
+    <Compile Include="Util\Reports\ReportCreator.cs" />
     <Compile Include="Util\RestWeatherForcastUtil.cs" />
   </ItemGroup>
   <ItemGroup>
