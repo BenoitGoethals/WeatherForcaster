@@ -70,6 +70,15 @@ namespace WeatherForcastLib {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to c:/temp.
+        /// </summary>
+        public static string pdf {
+            get {
+                return ResourceManager.GetString("pdf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to http://api.openweathermap.org/data/2.5/weather.
         /// </summary>
         public static string urlCurrent {

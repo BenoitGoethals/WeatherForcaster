@@ -13,5 +13,11 @@ namespace WeatherForcastLibTests.Repos
            Assert.IsNotNull(CityRepo.Cities().Count>5);
             Assert.IsNotNull(CityRepo.Cities().Contains("9880"));
         }
+
+
+
+
+
+
     }
 }

@@ -73,7 +73,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BL\PdfCreator.cs" />
+    <Compile Include="Util\Reports\CurrentWeatherFromAllCity.cs" />
+    <Compile Include="Util\Reports\PdfCreator.cs" />
     <Compile Include="BL\Statics.cs" />
     <Compile Include="Model\Current.cs" />
     <Compile Include="Model\WeatherData.cs" />
@@ -87,7 +88,7 @@
     </Compile>
     <Compile Include="Util\Converter.cs" />
     <Compile Include="Util\Reports\CurrentWeatherReport.cs" />
-    <Compile Include="Util\Reports\ICurrentWeatherReport.cs" />
+    <Compile Include="Util\Reports\IWeatherReport.cs" />
     <Compile Include="Util\Mode.cs" />
     <Compile Include="Util\Reports\Report.cs" />
     <Compile Include="Util\Reports\ReportCreator.cs" />
@@ -109,6 +110,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

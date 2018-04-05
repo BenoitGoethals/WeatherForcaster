@@ -120,6 +120,9 @@
   <data name="appiKey" xml:space="preserve">
     <value>03abf0d0b72e5c8b41d6b4dc9fcdd6c9</value>
   </data>
+  <data name="pdf" xml:space="preserve">
+    <value>c:/temp</value>
+  </data>
   <data name="urlCurrent" xml:space="preserve">
     <value>http://api.openweathermap.org/data/2.5/weather</value>
   </data>

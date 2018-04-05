@@ -14,6 +14,8 @@ namespace WeatherForcastLib.Util
 {
     public sealed class RestWeatherForcastUtil
     {
+        private static readonly log4net.ILog log
+            = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public static Current GetDataFromUrlByZipCode(string zip, string country, Mode mode=Mode.xml, string key = "")
         {
@@ -31,6 +33,7 @@ namespace WeatherForcastLib.Util
             }
             catch (WebException e)
             {
+                log.Error(url+"/n"+e.Status);
                 return null;
             }
            
