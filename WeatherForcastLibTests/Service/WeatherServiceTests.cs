@@ -1,122 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using WeatherForcastLib.BL;
 using WeatherForcastLib.Model;
-using WeatherForcastLib.Repos;
-using WeatherForcastLib.Util;
+using WeatherForcastLib.Service;
+using WeatherForcastLib.Util.Reports;
 
-namespace WeatherForcastLibTests.BL
+namespace WeatherForcastLibTests.Service
 {
     [TestClass()]
-    public class StaticsTests
+    public class WeatherServiceTests
     {
         [TestMethod()]
-        public void AddTest()
+        public void GetWeatherNowTest()
         {
-          
-            WeatherStatics weatherStatics=new WeatherStatics();
-            weatherStatics.Add(new WeatherData(RestWeatherForcastUtil.GetDataFromUrlByZipCode("9000", "BE")));
-            Assert.AreEqual(1,weatherStatics.AllWeatherDatas().Count);
+            WeatherService service=new WeatherService();
+           
+            service.GetWeatherDataNow("9000", "BE").CreateReport();
+
         }
-
-        [TestMethod()]
-        public void AddBulkTest()
-        {
-
-            WeatherStatics weatherStatics = new WeatherStatics();
-            foreach (var city in CityRepo.Cities().Take(5))
-            {
-                Current current= RestWeatherForcastUtil.GetDataFromUrlByZipCode(city, "BE");
-                if (current != null)
-                {
-                    weatherStatics.Add(new WeatherData(current));
-                }
-          
-            }
-         
-            Assert.AreEqual(4,weatherStatics.AllWeatherDatas().Count);
-        }
-
-        [TestMethod()]
-        public void GetMaxTempTest()
-        {
-            WeatherStatics weatherStatics = new WeatherStatics();
-            foreach (var data in GetDatas())
-            {
-                weatherStatics.Add(data);
-            }
-            
-            Assert.AreEqual(8, weatherStatics.AllWeatherDatas().Count);
-            Assert.AreEqual(14,weatherStatics.GetMaxTemp("Ghent").Temperature);
-        }
-
-        [TestMethod()]
-        public void GetMaxTempAllTest()
-        {
-            WeatherStatics weatherStatics = new WeatherStatics();
-            foreach (var data in GetDatas())
-            {
-                weatherStatics.Add(data);
-            }
-            Assert.AreEqual(8, weatherStatics.AllWeatherDatas().Count);
-            Assert.AreEqual(15.5,weatherStatics.GetMaxTemp());
-        }
-
-
-        [TestMethod()]
-        public void GetAverageTest()
-        {
-            WeatherStatics weatherStatics = new WeatherStatics();
-            foreach (var data in GetDatas())
-            {
-                weatherStatics.Add(data);
-            }
-            Assert.AreEqual(8, weatherStatics.AllWeatherDatas().Count);
-            Assert.AreEqual(13,weatherStatics.GetAverage("Ghent"));
-        }
-
-        [TestMethod()]
-        public void GetAverageTestAll()
-        {
-            WeatherStatics weatherStatics = new WeatherStatics();
-            foreach (var data in GetDatas())
-            {
-                weatherStatics.Add(data);
-            }
-            Assert.AreEqual(8, weatherStatics.AllWeatherDatas().Count);
-            Assert.AreEqual(13.0625, weatherStatics.GetAverage());
-        }
-
-        [TestMethod()]
-        public void GetMinTest()
-        {
-            WeatherStatics weatherStatics = new WeatherStatics();
-            foreach (var data in GetDatas())
-            {
-                weatherStatics.Add(data);
-            }
-            Assert.AreEqual(8, weatherStatics.AllWeatherDatas().Count);
-            Assert.AreEqual(12.5, weatherStatics.GetMin("Ghent").Temperature);
-        }
-
-        [TestMethod()]
-        public void GetMinTestAll()
-        {
-            WeatherStatics weatherStatics = new WeatherStatics();
-            foreach (var data in GetDatas())
-            {
-                weatherStatics.Add(data);
-            }
-            Assert.AreEqual(8, weatherStatics.AllWeatherDatas().Count);
-            Assert.AreEqual(12, weatherStatics.GetMin());
-        }
-
 
         private List<WeatherData> GetDatas()
         {
-            List<WeatherData> datas =new List<WeatherData>()
+            List<WeatherData> datas = new List<WeatherData>()
             {
                 new WeatherData()
                 {
@@ -130,7 +35,7 @@ namespace WeatherForcastLibTests.BL
                     Humidty = 5,
                     WindDirection = "NE",
                     UpdateWeather = DateTime.Now
-                    
+
                 },
                 new WeatherData()
                 {
@@ -239,6 +144,5 @@ namespace WeatherForcastLibTests.BL
 
             return datas;
         }
-
     }
 }

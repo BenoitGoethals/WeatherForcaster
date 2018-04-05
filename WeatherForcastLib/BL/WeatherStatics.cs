@@ -5,7 +5,7 @@ using WeatherForcastLib.Model;
 
 namespace WeatherForcastLib.BL
 {
-    public class Statics
+    public class WeatherStatics
     {
 
         private Dictionary<string,SortedSet<WeatherData>> _datas = new Dictionary<string, SortedSet<WeatherData>>();

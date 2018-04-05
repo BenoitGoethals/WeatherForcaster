@@ -73,9 +73,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Service\WeatherService.cs" />
     <Compile Include="Util\Reports\CurrentWeatherFromAllCity.cs" />
     <Compile Include="Util\Reports\PdfCreator.cs" />
-    <Compile Include="BL\Statics.cs" />
+    <Compile Include="BL\WeatherStatics.cs" />
     <Compile Include="Model\Current.cs" />
     <Compile Include="Model\WeatherData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -92,11 +93,10 @@
     <Compile Include="Util\Mode.cs" />
     <Compile Include="Util\Reports\Report.cs" />
     <Compile Include="Util\Reports\ReportCreator.cs" />
+    <Compile Include="Util\Reports\ServiceReportExtension.cs" />
     <Compile Include="Util\RestWeatherForcastUtil.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Service\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
