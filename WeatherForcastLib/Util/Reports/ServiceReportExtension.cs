@@ -20,8 +20,7 @@ namespace WeatherForcastLib.Util.Reports
 
         public static void CreateReport(this  WeatherData weather)
         {
-
-         //   creator.CreateReport(new CurrentWeatherReport(weatherData: weather.AllWeatherDatas()));
+            creator.CreateReport(new CurrentWeatherReport(weather));
         }
 
 

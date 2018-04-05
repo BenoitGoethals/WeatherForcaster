@@ -16,7 +16,7 @@ namespace WeatherForcastLibTests.Service
             WeatherService service=new WeatherService();
            
             service.GetWeatherDataNow("9000", "BE").CreateReport();
-
+            Assert.IsNotNull(service.GetWeatherDataNow("9000", "BE"));
         }
 
         private List<WeatherData> GetDatas()

@@ -28,6 +28,7 @@ namespace WeatherForcastLibTests.Util.Reports
                     UpdateWeather = DateTime.Now.AddHours(5)
 
                 }));
+            Assert.IsNotNull(creator);
             
         }
 
@@ -37,6 +38,7 @@ namespace WeatherForcastLibTests.Util.Reports
         {
             ReportCreator creator = new ReportCreator();
             creator.CreateReport(new CurrentWeatherFromAllCity(GetDatas()));
+            Assert.IsNotNull(creator);
 
         }
 
