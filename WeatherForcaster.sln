@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherForcasterStarter", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherForcastLibTests", "WeatherForcastLibTests\WeatherForcastLibTests.csproj", "{29A7BFE1-F028-4C21-B6BC-157A5CA6EF06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALMongoDb", "DALMongoDb\DALMongoDb.csproj", "{E8BB1776-D6D9-4CEA-9DA2-2331CA86BA02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALMongoDbTests", "DALMongoDbTests\DALMongoDbTests.csproj", "{4DCB4B7D-AA3B-4ACB-B67B-2FFFBF6C5CBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherFocastCommonClassLibrary", "WeatherFocastCommonClassLibrary\WeatherFocastCommonClassLibrary.csproj", "{2D856813-DEEF-4081-AD89-1DD5C2CEA013}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +33,18 @@ Global
 		{29A7BFE1-F028-4C21-B6BC-157A5CA6EF06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29A7BFE1-F028-4C21-B6BC-157A5CA6EF06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29A7BFE1-F028-4C21-B6BC-157A5CA6EF06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8BB1776-D6D9-4CEA-9DA2-2331CA86BA02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8BB1776-D6D9-4CEA-9DA2-2331CA86BA02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8BB1776-D6D9-4CEA-9DA2-2331CA86BA02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8BB1776-D6D9-4CEA-9DA2-2331CA86BA02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DCB4B7D-AA3B-4ACB-B67B-2FFFBF6C5CBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DCB4B7D-AA3B-4ACB-B67B-2FFFBF6C5CBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DCB4B7D-AA3B-4ACB-B67B-2FFFBF6C5CBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DCB4B7D-AA3B-4ACB-B67B-2FFFBF6C5CBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D856813-DEEF-4081-AD89-1DD5C2CEA013}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D856813-DEEF-4081-AD89-1DD5C2CEA013}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D856813-DEEF-4081-AD89-1DD5C2CEA013}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D856813-DEEF-4081-AD89-1DD5C2CEA013}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

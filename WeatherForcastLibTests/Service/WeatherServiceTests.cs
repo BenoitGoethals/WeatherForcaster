@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using WeatherFocastCommonClassLibrary;
+using WeatherForcastLib.BL;
 using WeatherForcastLib.Model;
+using WeatherForcastLib.Repos;
 using WeatherForcastLib.Service;
 using WeatherForcastLib.Util.Reports;
 
@@ -13,10 +17,23 @@ namespace WeatherForcastLibTests.Service
         [TestMethod()]
         public void GetWeatherNowTest()
         {
-            WeatherService service=new WeatherService();
+            WeatherWebRetrieverService webRetrieverService=new WeatherWebRetrieverService();
            
-            service.GetWeatherDataNow("9000", "BE").CreateReport();
-            Assert.IsNotNull(service.GetWeatherDataNow("9000", "BE"));
+            webRetrieverService.GetWeatherDataNow("9000", "BE");//.CreateReport();
+            Assert.IsNotNull(webRetrieverService.GetWeatherDataNow("9000", "BE"));
+        }
+
+
+
+        [TestMethod()]
+        public void GetWeatherBulkNowTest()
+        {
+            WeatherWebRetrieverService webRetrieverService = new WeatherWebRetrieverService();
+
+            WeatherStatics statics = webRetrieverService.GetWeatherBulkNow(CityRepo.Cities().Take(5).ToList(), "BE");
+      //      statics.CreateReport();
+            Assert.AreEqual(4,statics.AllWeatherDatas().Count);
+
         }
 
         private List<WeatherData> GetDatas()

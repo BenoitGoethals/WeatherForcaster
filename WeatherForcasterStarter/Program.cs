@@ -6,7 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
-using WeatherForcastLib.Model;
+
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 namespace WeatherForcasterStarter
@@ -16,6 +16,7 @@ namespace WeatherForcasterStarter
         static void Main(string[] args)
         {
         
+         /** 
             var urlTemplate = "http://api.openweathermap.org/data/2.5/weather?zip=9000,be&mode=xml&appid={0}";
             var url = string.Format(urlTemplate, "03abf0d0b72e5c8b41d6b4dc9fcdd6c9");
 
@@ -24,8 +25,7 @@ namespace WeatherForcasterStarter
         //    Console.WriteLine(response.GetResponseStream().Length);
            var s = new XmlSerializer(typeof(Current));
           var timezoneDbInfo = (Current)s.Deserialize(response.GetResponseStream() ?? throw new InvalidOperationException());
-
-         /**   Console.WriteLine(timezoneDbInfo);
+  Console.WriteLine(timezoneDbInfo);
             Document doc = new Document(PageSize.A4);
             var output = new FileStream(("c:/temp/MyFirstPDF.pdf"), FileMode.Create);
             var writer = PdfWriter.GetInstance(doc, output);

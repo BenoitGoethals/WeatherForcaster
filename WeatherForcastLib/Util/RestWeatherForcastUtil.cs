@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 using System.Net;
-using System.Reflection;
-using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 using WeatherForcastLib.Model;
 
@@ -14,7 +7,7 @@ namespace WeatherForcastLib.Util
 {
     public sealed class RestWeatherForcastUtil
     {
-        private static readonly log4net.ILog log
+        private static readonly log4net.ILog Log
             = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public static Current GetDataFromUrlByZipCode(string zip, string country, Mode mode=Mode.xml, string key = "")
@@ -33,7 +26,7 @@ namespace WeatherForcastLib.Util
             }
             catch (WebException e)
             {
-                log.Error(url+"/n"+e.Status);
+                Log.Error(url+"/n"+e.StackTrace);
                 return null;
             }
            

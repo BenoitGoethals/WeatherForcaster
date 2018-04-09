@@ -53,6 +53,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DALMongoDb\DALMongoDb.csproj">
+      <Project>{e8bb1776-d6d9-4cea-9da2-2331ca86ba02}</Project>
+      <Name>DALMongoDb</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WeatherForcastLib\WeatherForcastLib.csproj">
       <Project>{30D8F7BF-FC1D-471C-B348-EE7794AD9EF1}</Project>
       <Name>WeatherForcastLib</Name>

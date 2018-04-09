@@ -2,6 +2,7 @@
 using iText.Kernel.Font;
 using iText.Layout;
 using iText.Layout.Element;
+using WeatherFocastCommonClassLibrary;
 using WeatherForcastLib.Model;
 
 namespace WeatherForcastLib.Util.Reports

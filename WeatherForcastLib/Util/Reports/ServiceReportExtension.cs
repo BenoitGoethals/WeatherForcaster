@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using WeatherFocastCommonClassLibrary;
 using WeatherForcastLib.BL;
 using WeatherForcastLib.Model;
 using WeatherForcastLib.Service;
@@ -14,7 +15,7 @@ namespace WeatherForcastLib.Util.Reports
         public static void CreateReport(this WeatherStatics weather)
         {
 
-            //   creator.CreateReport(new CurrentWeatherReport(weatherData: weather.AllWeatherDatas()));
+               creator.CreateReport(new CurrentWeatherFromAllCity(weather));
         }
 
 

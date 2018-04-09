@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WeatherForcastLib {
+namespace DALMongoDb {
     using System;
     
     
@@ -22,24 +22,24 @@ namespace WeatherForcastLib {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    internal class ResourceDB {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal ResourceDB() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WeatherForcastLib.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DALMongoDb.ResourceDB", typeof(ResourceDB).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace WeatherForcastLib {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,55 +61,11 @@ namespace WeatherForcastLib {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 7c20894071500a864bf288e885647cd7.
+        ///   Looks up a localized string similar to mongodb://192.168.0.163:27017.
         /// </summary>
-        public static string appiKey {
+        internal static string url {
             get {
-                return ResourceManager.GetString("appiKey", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to c:/temp.
-        /// </summary>
-        public static string pdf {
-            get {
-                return ResourceManager.GetString("pdf", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to http://api.openweathermap.org/data/2.5/weather.
-        /// </summary>
-        public static string urlCurrent {
-            get {
-                return ResourceManager.GetString("urlCurrent", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Postcode;Plaatsnaam;Deelgemeente;Provincie
-        ///2970;&apos;S Gravenwezel;Ja;Antwerpen
-        ///3700;&apos;S Herenelderen;Ja;Limburg
-        ///7510;3 Suisses;;
-        ///9420;Aaigem;Ja;Oost-Vlaanderen 
-        ///8511;Aalbeke;Ja;West-Vlaanderen
-        ///3800;Aalst;Ja;Limburg
-        ///9300;AALST;Neen;Oost-Vlaanderen 
-        ///9880;AALTER;Neen;Oost-Vlaanderen 
-        ///3200;AARSCHOT;Neen;Vlaams-Brabant
-        ///8700;Aarsele;Ja;West-Vlaanderen
-        ///8211;Aartrijke;Ja;West-Vlaanderen
-        ///2630;AARTSELAAR;Neen;Antwerpen
-        ///4557;Abée;Ja;Luik
-        ///4280;Abolens;Ja;Luik
-        ///3930;Achel;Ja;Limburg
-        ///5590;Achêne;Ja;Namen
-        ///5362 [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string zip {
-            get {
-                return ResourceManager.GetString("zip", resourceCulture);
+                return ResourceManager.GetString("url", resourceCulture);
             }
         }
     }

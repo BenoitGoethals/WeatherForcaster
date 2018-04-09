@@ -1,52 +1,70 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using DALMongoDb;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WeatherFocastCommonClassLibrary;
-using WeatherForcastLib.BL;
 using WeatherForcastLib.Model;
-using WeatherForcastLib.Util.Reports;
 
-namespace WeatherForcastLibTests.Util.Reports
+
+namespace DALMongoDbTests
 {
     [TestClass()]
-    public class ReportCreatorTests
+    public class MongoDbRepoTests
     {
         [TestMethod()]
-        public void CreateReportTest()
+        public void AddBulkTest()
         {
-            ReportCreator creator=new ReportCreator();
-            creator.CreateReport(new CurrentWeatherReport(
-                new WeatherData()
-                {
-                    Country = "BE",
-                    Temperature = 12.5,
-                    Speed = 10.2,
-                    City = "Ghent",
-                    Pressure = 12,
-                    WindSpeed = 5,
-                    Id = Guid.NewGuid(),
-                    Humidty = 5,
-                    WindDirection = "NE",
-                    UpdateWeather = DateTime.Now.AddHours(5)
-
-                }));
-            Assert.IsNotNull(creator);
-            
+           MongoDbWeatherDataRepo service=new MongoDbWeatherDataRepo();
+            service.Drop();
+            service.AddBulk(GetDatas().ToArray());
+            Assert.IsTrue(service.GetWeatherDatas().Count()>1);
+          
         }
 
 
         [TestMethod()]
-        public void CreateReportBulkTest()
+        public void AddTest()
         {
-            ReportCreator creator = new ReportCreator();
-            creator.CreateReport(new CurrentWeatherFromAllCity(GetDatas()));
-            Assert.IsNotNull(creator);
+            MongoDbWeatherDataRepo service = new MongoDbWeatherDataRepo();
+            service.Drop();
+            service.Add(new WeatherData()
+            {
+                Country = "BE",
+                Temperature = 12.5,
+                Speed = 10.2,
+                City = "Ghent",
+                Pressure = 12,
+                WindSpeed = 5,
+                Id = Guid.NewGuid(),
+                Humidty = 5,
+                WindDirection = "NE",
+                UpdateWeather = DateTime.Now
+
+            });
+            Assert.IsTrue(service.GetWeatherDatas().Count() ==1);
+        }
+
+        [TestMethod()]
+        public void GetWeatherStaticsTest()
+        {
+            MongoDbWeatherDataRepo service = new MongoDbWeatherDataRepo();
+            service.Drop();
+            service.AddBulk(GetDatas().ToArray());
+            Assert.IsTrue(service.GetWeatherStatics().AllWeatherDatas().Count>1);
 
         }
 
+        [TestMethod()]
+        public void GetListOfWeatherkTest()
+        {
+            MongoDbWeatherDataRepo service = new MongoDbWeatherDataRepo();
+            service.Drop();
+            service.AddBulk(GetDatas().ToArray());
+            Assert.IsTrue(service.GetWeatherDatas().Count()==8);
 
-
-        private WeatherStatics GetDatas()
+        }
+        private IEnumerable<WeatherData> GetDatas()
         {
             List<WeatherData> datas = new List<WeatherData>()
             {
@@ -119,7 +137,8 @@ namespace WeatherForcastLibTests.Util.Reports
                     WindDirection = "NE",
                     UpdateWeather = DateTime.Now.AddHours(1)
 
-                },new WeatherData()
+                },
+                new WeatherData()
                 {
                     Country = "BE",
                     Temperature = 12.5,
@@ -132,8 +151,8 @@ namespace WeatherForcastLibTests.Util.Reports
                     WindDirection = "NE",
                     UpdateWeather = DateTime.Now.AddHours(2)
 
-                }
-                ,new WeatherData()
+                },
+                new WeatherData()
                 {
                     Country = "BE",
                     Temperature = 15.5,
@@ -146,8 +165,8 @@ namespace WeatherForcastLibTests.Util.Reports
                     WindDirection = "NE",
                     UpdateWeather = DateTime.Now.AddHours(3)
 
-                }
-                ,new WeatherData()
+                },
+                new WeatherData()
                 {
                     Country = "BE",
                     Temperature = 12.5,
@@ -164,15 +183,7 @@ namespace WeatherForcastLibTests.Util.Reports
 
 
             };
-
-            WeatherStatics weatherStatics=new WeatherStatics();
-            foreach (var variable in datas)
-            {
-                weatherStatics.Add(variable);
-            }
-
-
-            return weatherStatics;
+            return datas;
         }
     }
 }

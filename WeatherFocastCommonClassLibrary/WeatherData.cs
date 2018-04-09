@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson.Serialization.IdGenerators;
+using WeatherForcastLib.Model;
 
-namespace WeatherForcastLib.Model
+namespace WeatherFocastCommonClassLibrary
 {
+    [BsonIgnoreExtraElements]
     public class WeatherData
     {
 
@@ -23,18 +27,29 @@ namespace WeatherForcastLib.Model
         public WeatherData()
         {
         }
-           
 
 
+
+        [BsonId(IdGenerator = typeof(CombGuidGenerator))]
         public Guid ? Id { get; set; }
+        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
+        [BsonElement("UpdateWeather")]
         public DateTime UpdateWeather { get; set; }
+        [BsonElement("City")]
         public string City { get; set; }
+        [BsonElement("Country")]
         public string Country { get; set; }
+        [BsonElement("Temperature")]
         public double Temperature { get; set; }
+        [BsonElement("Humidty")]
         public int Humidty { get; set; }
+        [BsonElement("Pressure")]
         public int Pressure { get; set; }
+        [BsonElement("Speed")]
         public double Speed { get; set; }
+        [BsonElement("WindSpeed")]
         public double WindSpeed { get; set; }
+        [BsonElement("name")]
         public string WindDirection { get; set; }
 
 

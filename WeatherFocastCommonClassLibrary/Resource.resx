@@ -117,17 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="appiKey" xml:space="preserve">
-    <value>7c20894071500a864bf288e885647cd7</value>
-  </data>
-  <data name="pdf" xml:space="preserve">
-    <value>c:/temp</value>
-  </data>
-  <data name="urlCurrent" xml:space="preserve">
-    <value>http://api.openweathermap.org/data/2.5/weather</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="zip" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>zip.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="url" xml:space="preserve">
+    <value>mongodb://192.168.0.163:27017</value>
   </data>
 </root>

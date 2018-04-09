@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using iText.IO.Font;
 using iText.Kernel.Font;
 using iText.Layout;
 using iText.Layout.Element;
-using WeatherForcastLib.Model;
+using WeatherForcastLib.BL;
 
 namespace WeatherForcastLib.Util.Reports
 {
@@ -13,9 +12,9 @@ namespace WeatherForcastLib.Util.Reports
 
         private PdfFont font = PdfFontFactory.CreateFont(FontConstants.TIMES_ROMAN);
 
-        private readonly List<WeatherData> _weatherData;
+        private readonly WeatherStatics _weatherData;
 
-        public CurrentWeatherFromAllCity(List<WeatherData> weatherData)
+        public CurrentWeatherFromAllCity(WeatherStatics weatherData)
         {
             this._weatherData = weatherData;
             base.WeatherReport = this;
@@ -31,7 +30,7 @@ namespace WeatherForcastLib.Util.Reports
 
         public void MakBody(Document document)
         {
-            foreach (var data in _weatherData)
+            foreach (var data in _weatherData.AllWeatherDatas())
             {
                 
            
