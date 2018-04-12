@@ -18,7 +18,7 @@ namespace WeatherForcastLibTests.BL
         {
           
             WeatherStatics weatherStatics=new WeatherStatics();
-            weatherStatics.Add(new WeatherData(RestWeatherForcastUtil.GetDataFromUrlByZipCode("9000", "BE")));
+            weatherStatics.Add(new WeatherData(RestWeatherForcastUtil.GetDataFromUrlByZipCode("9000", "BE").Result));
             Assert.AreEqual(1,weatherStatics.AllWeatherDatas().Count);
         }
 
@@ -29,7 +29,7 @@ namespace WeatherForcastLibTests.BL
             WeatherStatics weatherStatics = new WeatherStatics();
             foreach (var city in CityRepo.Cities().Take(5))
             {
-                Current current= RestWeatherForcastUtil.GetDataFromUrlByZipCode(city, "BE");
+                Current current= RestWeatherForcastUtil.GetDataFromUrlByZipCode(city, "BE").Result;
                 if (current != null)
                 {
                     weatherStatics.Add(new WeatherData(current));

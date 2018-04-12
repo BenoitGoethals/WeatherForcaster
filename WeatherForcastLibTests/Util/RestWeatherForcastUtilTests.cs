@@ -9,7 +9,7 @@ namespace WeatherForcastLibTests.Util
         [TestMethod()]
         public void GetDataFromUrlByZipCodeTest()
         {
-            Assert.AreEqual("Ghent",RestWeatherForcastUtil.GetDataFromUrlByZipCode("9000","be").City.Name);
+            Assert.AreEqual("Ghent",RestWeatherForcastUtil.GetDataFromUrlByZipCode("9000","be").Result.City.Name);
         }
 
 

@@ -8,7 +8,7 @@ namespace WeatherForcastLib.Service
 {
     public class WeatherSevice
     {
-        private WeatherWebRetrieverService WeatherWebRetrieverService=new WeatherWebRetrieverService();
+        private WeatherWebRetrieverService _weatherWebRetrieverService=new WeatherWebRetrieverService();
         private MongoService _dataRepo = new MongoService();
 
 
@@ -31,13 +31,13 @@ namespace WeatherForcastLib.Service
         public void StoreDataWeather(List<string> datas, string country)
         {
 
-            var bulk=WeatherWebRetrieverService.GetWeatherBulkNow(datas, country);
+            var bulk=_weatherWebRetrieverService.GetWeatherBulkNow(datas, country);
             _dataRepo.AddBulk(bulk.AllWeatherDatas().ToArray());
         }
 
         public void StoreDataWeather(string postCode, string country)
         {
-            var bulk = WeatherWebRetrieverService.GetWeatherDataNow(postCode, country);
+            var bulk = _weatherWebRetrieverService.GetWeatherDataNow(postCode, country);
             _dataRepo.Add(bulk);
         }
 
